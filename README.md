@@ -1,8 +1,10 @@
-# React + Vite
+# React + Vite w/ tailwind css
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+*** work in progress ***
 
-Currently, two official plugins are available:
+This tech support website is the initial setup of a ticket managing system designed to
+organize and track client issues. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was developed to become a learning platform for React and Full Stack web applications. 
+
+
