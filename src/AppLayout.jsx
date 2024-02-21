@@ -7,7 +7,7 @@ export default function AppLayout() {
   return (
     <div className="flex flex-col h-screen justify-between">
       <Header></Header>
-      <div className="grid grid-cols-2 m-auto">
+      <div className="grid grid-cols-2 m-auto gap-6 px-3">
         <EnterTicket></EnterTicket>
         <ShowTicket></ShowTicket>
       </div>
