@@ -15,7 +15,7 @@ export default function EnterTicket() {
           <label htmlFor="notes">Notes:</label>
           <textarea
             rows={4}
-            cols={50}
+            cols={30}
             className="border mt-5"
             id="notes"
           ></textarea>
