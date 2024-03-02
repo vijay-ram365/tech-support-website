@@ -12,6 +12,12 @@ export default function EnterTicket() {
           <input type="text" id="userEmail" className="border" />
         </div>
         <div>
+          <label htmlFor="priority">Priority: </label>
+          <input type="checkbox" id="priority" />
+        </div>
+        <label htmlFor="os">Operating System: </label>
+        <input type="text" id="os" className="border" />
+        <div>
           <label htmlFor="notes">Notes:</label>
           <textarea
             rows={4}
