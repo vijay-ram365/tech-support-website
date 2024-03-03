@@ -30,10 +30,10 @@ export default function AppLayout() {
   }, []);
 
   return (
-    <div className="flex flex-col h-screen justify-between">
+    <div className="flex flex-col h-100 justify-between bg-slate-800">
       <Header></Header>
-      <div className="px-3 sm:grid grid-cols-2  gap-6">
-        <div className="border">
+      <div className="px-3 sm:grid grid-cols-2">
+        <div className="sticky">
           <EnterTicket fetchTickets={fetchTickets}></EnterTicket>
         </div>
         {loading ? (
