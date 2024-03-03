@@ -1,4 +1,17 @@
+const BASE_URL = "https://tech-support-website-api.onrender.com";
+
 export default function ShowTicket({ tickets }) {
+  const deleteUser = async function (id) {
+    try {
+      const response = await fetch(`${BASE_URL}/tickets/${id}`, {
+        method: "DELETE",
+      });
+      if (!response) return;
+      tickets.filter((ticket) => ticket.id !== id);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="border p-5">
       <h3 className="mb-5">Tickets:</h3>
@@ -11,8 +24,13 @@ export default function ShowTicket({ tickets }) {
               <small>{ticket.dateCreated}</small>
             </div>
             <p>{ticket.notes}</p>
-            <button className="bg-yellow-300 p-1 mr-2">edit</button>
-            <button className="bg-red-300 p-1">delete</button>
+
+            <button
+              className="bg-red-300 p-1"
+              onClick={() => deleteUser(ticket.id)}
+            >
+              delete
+            </button>
           </li>
         ))}
       </ul>

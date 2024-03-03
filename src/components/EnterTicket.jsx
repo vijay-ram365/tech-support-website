@@ -1,30 +1,78 @@
+import { useState } from "react";
+
+const BASE_URL = "https://tech-support-website-api.onrender.com";
+
 export default function EnterTicket() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [notes, setNotes] = useState("");
+  const [date, setDate] = useState("");
+
+  const handleInput = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(`${BASE_URL}/tickets`, {
+        method: "POST",
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          dateCreated: date,
+          notes: notes,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const responseJson = await response.json();
+      if (responseJson) {
+        setName("");
+        setEmail("");
+        setNotes("");
+        setDate("");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="border p-5">
       <h3>Enter information here:</h3>
-      <form>
+      <form onSubmit={handleInput}>
         <div>
           <label htmlFor="userName">Name:</label>
-          <input type="text" id="userName" className="border mb-5 mt-5" />
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="border mb-5 mt-5"
+          />
         </div>
         <div>
           <label htmlFor="userEmail">Email:</label>
-          <input type="text" id="userEmail" className="border" />
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="border"
+          />
         </div>
         <div>
           <label htmlFor="notes">Notes:</label>
           <textarea
             rows={4}
             cols={30}
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
             className="border mt-5"
-            id="notes"
           ></textarea>
           <div>
-            <button className="border rounded-md m-2 p-1 hover:bg-slate-200">
+            <button
+              className="border rounded-md m-2 p-1 hover:bg-slate-200"
+              type="submit"
+            >
               Submit
-            </button>
-            <button className="border rounded-md p-1 hover:bg-slate-200">
-              Clear Form
             </button>
           </div>
         </div>
