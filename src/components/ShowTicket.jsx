@@ -10,13 +10,11 @@ export default function ShowTicket({ tickets }) {
       tickets.filter((ticket) => ticket.id !== id);
     } catch (error) {
       console.log(error);
-    } finally {
-      window.location.reload();
     }
   };
   return (
     <div className="border p-5">
-      <h3 className="mb-5">Tickets:</h3>
+      <h3 className="mb-5">Tickets: ({tickets.length})</h3>
       <ul>
         {tickets.map((ticket, index) => (
           <li key={index} className="border-b-4 border p-1 my-3">

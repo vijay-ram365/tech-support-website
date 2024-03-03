@@ -33,8 +33,6 @@ export default function EnterTicket() {
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      window.location.reload();
     }
   };
 
