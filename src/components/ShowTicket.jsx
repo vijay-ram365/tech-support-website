@@ -10,6 +10,8 @@ export default function ShowTicket({ tickets }) {
       tickets.filter((ticket) => ticket.id !== id);
     } catch (error) {
       console.log(error);
+    } finally {
+      window.location.reload();
     }
   };
   return (

@@ -33,34 +33,43 @@ export default function EnterTicket() {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      window.location.reload();
     }
   };
 
   return (
-    <div className="border p-5">
+    <div className="p-5">
       <h3>Enter information here:</h3>
       <form onSubmit={handleInput}>
         <div>
-          <label htmlFor="userName">Name:</label>
+          <label htmlFor="name">Name:</label>
           <input
+            id="name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="border mb-5 mt-5"
+            required
+            autoComplete="true"
           />
         </div>
         <div>
-          <label htmlFor="userEmail">Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
-            type="text"
+            id="email"
+            type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="border"
+            required
+            autoComplete="true"
           />
         </div>
         <div>
           <label htmlFor="notes">Notes:</label>
           <textarea
+            id="notes"
             rows={4}
             cols={30}
             value={notes}

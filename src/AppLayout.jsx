@@ -30,8 +30,10 @@ export default function AppLayout() {
   return (
     <div className="flex flex-col h-screen justify-between">
       <Header></Header>
-      <div className="px-3 sm:grid grid-cols-2 m-auto gap-6">
-        <EnterTicket></EnterTicket>
+      <div className="px-3 sm:grid grid-cols-2  gap-6">
+        <div className="border">
+          <EnterTicket></EnterTicket>
+        </div>
         {loading ? (
           <Loader></Loader>
         ) : (
