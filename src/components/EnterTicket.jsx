@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const BASE_URL = "https://tech-support-website-api.onrender.com";
 
-export default function EnterTicket() {
+export default function EnterTicket({ fetchTickets }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
@@ -30,6 +30,7 @@ export default function EnterTicket() {
         setEmail("");
         setNotes("");
         setDate("");
+        fetchTickets();
       }
     } catch (error) {
       console.log(error);

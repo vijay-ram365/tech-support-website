@@ -1,6 +1,6 @@
 const BASE_URL = "https://tech-support-website-api.onrender.com";
 
-export default function ShowTicket({ tickets }) {
+export default function ShowTicket({ tickets, fetchTickets }) {
   const deleteUser = async function (id) {
     try {
       const response = await fetch(`${BASE_URL}/tickets/${id}`, {
@@ -8,16 +8,19 @@ export default function ShowTicket({ tickets }) {
       });
       if (!response) return;
       tickets.filter((ticket) => ticket.id !== id);
+      fetchTickets();
     } catch (error) {
       console.log(error);
     }
   };
   return (
     <div className="border p-5">
-      <h3 className="mb-5">Tickets: ({tickets.length})</h3>
+      <h3 className="mb-5">
+        {tickets.length === 0 ? "No Tickets" : `Tickets: ${tickets.length}`}
+      </h3>
       <ul>
-        {tickets.map((ticket, index) => (
-          <li key={index} className="border-b-4 border p-1 my-3">
+        {tickets.map((ticket) => (
+          <li key={ticket.id} className="border-b-4 border p-1 my-3">
             <div className="flex justify-between mb-3">
               <p>{ticket.name}</p>
               <p>{ticket.email}</p>
