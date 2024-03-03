@@ -26,7 +26,7 @@ export default function ShowTicket({ tickets, fetchTickets }) {
               <p>{ticket.email}</p>
               <small>{ticket.dateCreated}</small>
             </div>
-            <p>{ticket.notes}</p>
+            <p className="mb-2">{ticket.notes}</p>
 
             <button
               className="bg-red-300 p-1"
@@ -34,6 +34,7 @@ export default function ShowTicket({ tickets, fetchTickets }) {
             >
               delete
             </button>
+            <button className="bg-yellow-300 p-1 ml-2">edit</button>
           </li>
         ))}
       </ul>
