@@ -21,15 +21,20 @@ export default function ShowTicket({ tickets, fetchTickets }) {
       <ul>
         {tickets.map((ticket) => (
           <li key={ticket.id} className="border-b-2 border-r-8 p-2 my-3">
-            <div className="flex justify-between m-3">
-              <p>{ticket.name}</p>
-              <p>{ticket.email}</p>
-              <small>{ticket.dateCreated}</small>
+            <div className="flex justify-between items-center m-3">
+              <p>
+                {ticket.name}
+                <span className="bg-green-500 ml-3 px-1 rounded text-xs text-slate-600">
+                  {ticket.operatingSystem}
+                </span>
+              </p>
+              <p className="text-xs">{ticket.email}</p>
+              <small className="text-xs">{ticket.dateCreated}</small>
             </div>
             <p className="mb-4 mt-4 p-3">{ticket.notes}</p>
 
             <button
-              className="bg-red-400 px-2 py-1 ml-3 rounded"
+              className="bg-red-400 px-2 py-1 ml-3 rounded text-slate-300"
               onClick={() => deleteUser(ticket.id)}
             >
               delete

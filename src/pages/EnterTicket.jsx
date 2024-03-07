@@ -6,7 +6,7 @@ export default function EnterTicket({ fetchTickets }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [notes, setNotes] = useState("");
-  const [date, setDate] = useState("");
+  const [operatingSystem, setOperatingSystem] = useState("");
 
   const handleInput = async (e) => {
     e.preventDefault();
@@ -16,7 +16,8 @@ export default function EnterTicket({ fetchTickets }) {
         body: JSON.stringify({
           name: name,
           email: email,
-          dateCreated: date,
+          dateCreated: new Date().toLocaleString(),
+          operatingSystem: operatingSystem,
           notes: notes,
         }),
         headers: {
@@ -29,7 +30,7 @@ export default function EnterTicket({ fetchTickets }) {
         setName("");
         setEmail("");
         setNotes("");
-        setDate("");
+
         fetchTickets();
       }
     } catch (error) {
@@ -79,8 +80,24 @@ export default function EnterTicket({ fetchTickets }) {
             autoComplete="true"
           />
         </div>
+        <div className="mb-5">
+          <label htmlFor="operatingSystem" className="text-cyan-700">
+            Select OS:
+          </label>
+          <select
+            name="operatingSystem"
+            id="operatingSystem"
+            value={operatingSystem}
+            onChange={(e) => setOperatingSystem(e.target.value)}
+            className="ml-3"
+          >
+            <option value="windows">Windows</option>
+            <option value="macos">MacOS</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
         <div>
-          <label htmlFor="notes" className="mb-5  text-cyan-700">
+          <label htmlFor="notes" className="mb-5 text-cyan-700">
             Notes:
           </label>
           <textarea

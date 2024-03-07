@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import ShowTicket from "./components/ShowTicket";
-import EnterTicket from "./components/EnterTicket";
+import ShowTicket from "./pages/ShowTicket";
+import EnterTicket from "./pages/EnterTicket";
 import Loader from "./components/Loader";
 
 const BASE_URL = "https://tech-support-website-api.onrender.com";
