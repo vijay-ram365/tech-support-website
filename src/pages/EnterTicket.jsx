@@ -89,7 +89,7 @@ export default function EnterTicket({ fetchTickets }) {
             id="operatingSystem"
             value={operatingSystem}
             onChange={(e) => setOperatingSystem(e.target.value)}
-            className="ml-3"
+            className="ml-3 rounded"
           >
             <option value="windows">Windows</option>
             <option value="macos">MacOS</option>
