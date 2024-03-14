@@ -13,6 +13,7 @@ export default function AppLayout() {
   const [loading, setLoading] = useState(false);
 
   async function fetchTickets() {
+    // this function gets the tickets from the api and may be moved for organization reasons.
     try {
       setLoading(true);
       const response = await fetch(`${BASE_URL}/tickets`);

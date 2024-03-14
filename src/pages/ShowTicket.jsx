@@ -2,6 +2,7 @@ const BASE_URL = "https://tech-support-website-api.onrender.com";
 
 export default function ShowTicket({ tickets, fetchTickets }) {
   const deleteUser = async function (id) {
+    // this functions deletes the tickets and should be renamed and moved for organizational reasons.
     try {
       const response = await fetch(`${BASE_URL}/tickets/${id}`, {
         method: "DELETE",
