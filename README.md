@@ -12,6 +12,11 @@ The following has been created for initial testing:
   - A basic back-end service has been deployed from Render.com
   - An input form has been created and styled
   - An area to view tickets has been created
-  - Tickets can be viewed, created, or deleted from the back-end.
+  - Tickets can be viewed, created, or deleted from the back-end
+
+Future considerations:
+ - Login page
+ - React SPA refactor
+ - Design changes with TailWind CSS
 
 
