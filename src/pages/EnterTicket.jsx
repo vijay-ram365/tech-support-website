@@ -37,7 +37,8 @@ export default function EnterTicket({ fetchTickets }) {
       console.log(error);
     }
   };
-
+  // check options selections for initial page loading so a default selection is made
+  // indicate to the user that an option must be selected
   return (
     <div className="p-5 border-l-4 border-b-2">
       <h3 className="text-center text-slate-400 mb-2">
