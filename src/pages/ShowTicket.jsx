@@ -41,12 +41,12 @@ export default function ShowTicket({ tickets, fetchTickets }) {
             <p className="mb-4 mt-4 p-3">{ticket.notes}</p>
 
             <button
-              className="bg-red-400 px-2 py-1 ml-3 rounded text-slate-300"
+              className="bg-red-400 px-2 py-1 ml-3 rounded text-slate-300 dark:hover:bg-red-500"
               onClick={() => deleteUser(ticket.id)}
             >
               delete
             </button>
-            <button className="bg-yellow-500 px-2 py-1 m-3 text-slate-500 rounded">
+            <button className="bg-yellow-500 px-2 py-1 m-3 text-slate-500 rounded dark:hover:bg-yellow-400">
               edit
             </button>
           </li>
