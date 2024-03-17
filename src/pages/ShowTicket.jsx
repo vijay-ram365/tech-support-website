@@ -25,7 +25,13 @@ export default function ShowTicket({ tickets, fetchTickets }) {
             <div className="flex justify-between items-center m-3">
               <p>
                 {ticket.name}
-                <span className="bg-green-500 ml-3 px-1 rounded text-xs text-slate-600">
+                <span
+                  className={`${
+                    ticket.operatingSystem
+                      ? "bg-green-500 ml-3 px-1 rounded text-xs text-slate-600"
+                      : ""
+                  }`}
+                >
                   {ticket.operatingSystem}
                 </span>
               </p>
