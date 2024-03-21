@@ -33,24 +33,28 @@ export default function App() {
   }, []);
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={<EnterTicket fetchTickets={fetchTickets}></EnterTicket>}
-        ></Route>
-        <Route
-          path="showticket"
-          element={
-            <ShowTicket
-              tickets={tickets}
-              fetchTickets={fetchTickets}
-            ></ShowTicket>
-          }
-        ></Route>
-        <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header></Header>
+        <Routes>
+          <Route
+            path="/"
+            element={<EnterTicket fetchTickets={fetchTickets}></EnterTicket>}
+          ></Route>
+          <Route
+            path="showtickets"
+            element={
+              <ShowTicket
+                tickets={tickets}
+                fetchTickets={fetchTickets}
+              ></ShowTicket>
+            }
+          ></Route>
+          <Route path="*" element={<PageNotFound></PageNotFound>}></Route>
+        </Routes>
+        <Footer></Footer>
+      </BrowserRouter>
+    </>
   );
 }
 
