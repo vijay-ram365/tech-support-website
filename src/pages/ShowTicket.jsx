@@ -15,7 +15,7 @@ export default function ShowTicket({ tickets, fetchTickets }) {
     }
   };
   return (
-    <div className="p-5 text-slate-300 overflow-y-auto h-dvh">
+    <div className="p-5 text-slate-500 overflow-y-auto h-dvh">
       <h3 className="mb-5 text-center border-b">
         {tickets.length === 0 ? "No Tickets" : `Tickets: ${tickets.length}`}
       </h3>
