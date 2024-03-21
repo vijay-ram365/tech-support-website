@@ -8,7 +8,7 @@ import Loader from "./components/Loader";
 
 const BASE_URL = "https://tech-support-website-api.onrender.com";
 
-export default function AppLayout() {
+export default function App() {
   const [tickets, setTickets] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -31,21 +31,14 @@ export default function AppLayout() {
   }, []);
 
   return (
-    <div className="flex flex-col h-dvh justify-between bg-slate-800">
+    <div>
       <Header></Header>
-      <div className="px-3 sm:grid grid-cols-2">
-        <div className="sticky">
-          <EnterTicket fetchTickets={fetchTickets}></EnterTicket>
-        </div>
-        {loading ? (
-          <Loader></Loader>
-        ) : (
-          <ShowTicket
-            tickets={tickets}
-            fetchTickets={fetchTickets}
-          ></ShowTicket>
-        )}
-      </div>
+      <EnterTicket fetchTickets={fetchTickets}></EnterTicket>
+      {loading ? (
+        <Loader></Loader>
+      ) : (
+        <ShowTicket tickets={tickets} fetchTickets={fetchTickets}></ShowTicket>
+      )}
       <Footer></Footer>
     </div>
   );
