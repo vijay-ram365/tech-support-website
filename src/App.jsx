@@ -1,9 +1,52 @@
-import AppLayout from "./AppLayout";
+import { useEffect, useState } from "react";
 
-export default function App() {
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import ShowTicket from "./pages/ShowTicket";
+import EnterTicket from "./pages/EnterTicket";
+import Loader from "./components/Loader";
+
+const BASE_URL = "https://tech-support-website-api.onrender.com";
+
+export default function AppLayout() {
+  const [tickets, setTickets] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function fetchTickets() {
+    // this function gets the tickets from the api and may be moved for organization reasons.
+    try {
+      setLoading(true);
+      const response = await fetch(`${BASE_URL}/tickets`);
+      const data = await response.json();
+      setTickets(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchTickets();
+  }, []);
+
   return (
-    <div>
-      <AppLayout></AppLayout>
+    <div className="flex flex-col h-100 justify-between bg-slate-800">
+      <Header></Header>
+      <div className="px-3 sm:grid grid-cols-2">
+        <div className="sticky">
+          <EnterTicket fetchTickets={fetchTickets}></EnterTicket>
+        </div>
+        {loading ? (
+          <Loader></Loader>
+        ) : (
+          <ShowTicket
+            tickets={tickets}
+            fetchTickets={fetchTickets}
+          ></ShowTicket>
+        )}
+      </div>
+      <Footer></Footer>
     </div>
   );
 }
