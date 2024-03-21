@@ -31,7 +31,7 @@ export default function AppLayout() {
   }, []);
 
   return (
-    <div className="flex flex-col h-100 justify-between bg-slate-800">
+    <div className="flex flex-col h-dvh justify-between bg-slate-800">
       <Header></Header>
       <div className="px-3 sm:grid grid-cols-2">
         <div className="sticky">
