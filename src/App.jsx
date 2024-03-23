@@ -5,7 +5,6 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import ShowTicket from "./pages/ShowTicket";
 import EnterTicket from "./pages/EnterTicket";
-import Loader from "./components/Loader";
 import PageNotFound from "./pages/PageNotFound";
 
 const BASE_URL = "https://tech-support-website-api.onrender.com";
@@ -47,6 +46,7 @@ export default function App() {
               <ShowTicket
                 tickets={tickets}
                 fetchTickets={fetchTickets}
+                loading={loading}
               ></ShowTicket>
             }
           ></Route>

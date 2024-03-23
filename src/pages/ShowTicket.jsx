@@ -1,6 +1,12 @@
+import { useState } from "react";
+import Loader from "../components/Loader";
+import EditTicketModal from "../components/EditTicketModal";
+
 const BASE_URL = "https://tech-support-website-api.onrender.com";
 
-export default function ShowTicket({ tickets, fetchTickets }) {
+export default function ShowTicket({ tickets, fetchTickets, loading }) {
+  const [editModal, setEditModal] = useState(false);
+
   const deleteUser = async function (id) {
     // this functions deletes the tickets and should be renamed and moved for organizational reasons.
     try {
@@ -14,11 +20,30 @@ export default function ShowTicket({ tickets, fetchTickets }) {
       console.log(error);
     }
   };
+
+  const editUser = async function (id) {
+    try {
+      const response = await fetch(`${BASE_URL}/tickets/${id}`, {
+        method: "PUT",
+      });
+      if (!response) return;
+      tickets.filter((ticket) => ticket.id !== id);
+      setEditModal(!editModal);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="p-5 text-slate-500 overflow-y-auto h-dvh">
-      <h3 className="mb-5 text-center border-b">
-        {tickets.length === 0 ? "No Tickets" : `Tickets: ${tickets.length}`}
-      </h3>
+      {!loading ? (
+        <h3 className="mb-5 text-center border-b">
+          {tickets.length === 0 ? "No Tickets" : `Tickets: ${tickets.length}`}
+        </h3>
+      ) : (
+        <Loader></Loader>
+      )}
+      {editModal && <EditTicketModal></EditTicketModal>}
       <ul>
         {tickets.map((ticket) => (
           <li key={ticket.id} className="border-b-2 border-r-8 p-2 my-3">
@@ -46,7 +71,10 @@ export default function ShowTicket({ tickets, fetchTickets }) {
             >
               delete
             </button>
-            <button className="bg-yellow-500 px-2 py-1 m-3 text-slate-500 rounded dark:hover:bg-yellow-400">
+            <button
+              className="bg-yellow-500 px-2 py-1 m-3 text-slate-500 rounded dark:hover:bg-yellow-400"
+              onClick={() => editUser(ticket.id)}
+            >
               edit
             </button>
           </li>
