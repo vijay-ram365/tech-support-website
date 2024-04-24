@@ -6,6 +6,7 @@ const BASE_URL = "https://tech-support-website-api.onrender.com";
 
 export default function ShowTicket({ tickets, fetchTickets, loading }) {
   const [editModal, setEditModal] = useState(false);
+  //const [editTickets, setEditTickets] = useState({});
 
   const deleteUser = async function (id) {
     // this functions deletes the tickets and should be renamed and moved for organizational reasons.
@@ -27,7 +28,8 @@ export default function ShowTicket({ tickets, fetchTickets, loading }) {
         method: "PUT",
       });
       if (!response) return;
-      tickets.filter((ticket) => ticket.id !== id);
+      const editedTicket = tickets.filter((ticket) => ticket.id !== id);
+      console.log(editedTicket);
       setEditModal(!editModal);
     } catch (error) {
       console.log(error);

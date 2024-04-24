@@ -9,6 +9,8 @@ This project was developed to become a learning platform for React and Full Stac
 
 The following has been created for initial testing:
 
+**_ The Render service free tier deletes the data and can only be used for learning purposes_**
+
 - A basic back-end service has been deployed from Render.com
 - An input form has been created and styled
 - An area to view tickets has been created
