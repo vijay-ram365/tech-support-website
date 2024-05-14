@@ -7,7 +7,8 @@ import ShowTicket from "./pages/ShowTicket";
 import EnterTicket from "./pages/EnterTicket";
 import PageNotFound from "./pages/PageNotFound";
 
-const BASE_URL = "https://tech-support-website-api.onrender.com";
+//base url to be changed
+//const BASE_URL = "https://tech-support-website-api.onrender.com";
 
 export default function App() {
   const [tickets, setTickets] = useState([]);

@@ -2,14 +2,16 @@
 
 **_ work in progress _**
 
+**_ The Render service free tier deletes the data and can only be used for learning purposes_**
+
+Supabase (Postgres Database) will be used for testing and learning purposes.
+
 The tech support website is the initial setup of a ticket managing system designed to
 organize and track client issues.
 
 This project was developed to become a learning platform for React and Full Stack web applications.
 
 The following has been created for initial testing:
-
-**_ The Render service free tier deletes the data and can only be used for learning purposes_**
 
 - A basic back-end service has been deployed from Render.com
 - An input form has been created and styled

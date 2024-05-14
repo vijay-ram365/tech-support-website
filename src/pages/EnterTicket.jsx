@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-const BASE_URL = "https://tech-support-website-api.onrender.com";
+// Base URL needs to be changed
+//const BASE_URL = "https://tech-support-website-api.onrender.com";
 
 export default function EnterTicket({ fetchTickets }) {
   const [name, setName] = useState("");

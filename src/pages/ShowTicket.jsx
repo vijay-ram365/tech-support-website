@@ -2,7 +2,8 @@ import { useState } from "react";
 import Loader from "../components/Loader";
 import EditTicketModal from "../components/EditTicketModal";
 
-const BASE_URL = "https://tech-support-website-api.onrender.com";
+//base url to be changed
+//const BASE_URL = "https://tech-support-website-api.onrender.com";
 
 export default function ShowTicket({ tickets, fetchTickets, loading }) {
   const [editModal, setEditModal] = useState(false);
