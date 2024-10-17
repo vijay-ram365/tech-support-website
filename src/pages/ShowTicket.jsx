@@ -5,37 +5,38 @@ import EditTicketModal from "../components/EditTicketModal";
 //base url to be changed
 //const BASE_URL = "https://tech-support-website-api.onrender.com";
 
-export default function ShowTicket({ tickets, fetchTickets, loading }) {
+export default function ShowTicket({ tickets, loading }) {
   const [editModal, setEditModal] = useState(false);
   //const [editTickets, setEditTickets] = useState({});
 
-  const deleteUser = async function (id) {
-    // this functions deletes the tickets and should be renamed and moved for organizational reasons.
-    try {
-      const response = await fetch(`${BASE_URL}/tickets/${id}`, {
-        method: "DELETE",
-      });
-      if (!response) return;
-      tickets.filter((ticket) => ticket.id !== id);
-      fetchTickets();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const deleteUser = async function (id) {
+  //   // this functions deletes the tickets and should be renamed and moved for organizational reasons.
+  //   try {
+  //     const response = await fetch(`${BASE_URL}/tickets/${id}`, {
+  //       method: "DELETE",
+  //     });
+  //     if (!response) return;
+  //     tickets.filter((ticket) => ticket.id !== id);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const editUser = async function (id) {
-    try {
-      const response = await fetch(`${BASE_URL}/tickets/${id}`, {
-        method: "PUT",
-      });
-      if (!response) return;
-      const editedTicket = tickets.filter((ticket) => ticket.id !== id);
-      console.log(editedTicket);
-      setEditModal(!editModal);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const editUser = async function (id) {
+  //   try {
+  //     const response = await fetch(`${BASE_URL}/tickets/${id}`, {
+  //       method: "PUT",
+  //     });
+  //     if (!response) return;
+  //     const editedTicket = tickets.filter((ticket) => ticket.id !== id);
+  //     console.log(editedTicket);
+  //     setEditModal(!editModal);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  console.log(tickets);
 
   return (
     <div className="p-5 text-slate-500 overflow-y-auto h-dvh">
@@ -55,18 +56,18 @@ export default function ShowTicket({ tickets, fetchTickets, loading }) {
                 {ticket.name}
                 <span
                   className={`${
-                    ticket.operatingSystem
-                      ? "bg-green-500 ml-3 px-1 rounded text-xs text-slate-600"
+                    ticket.os
+                      ? "bg-green-500 ml-3 p-1 rounded text-xs text-slate-600"
                       : ""
                   }`}
                 >
-                  {ticket.operatingSystem}
+                  {ticket.os}
                 </span>
               </p>
               <p className="text-xs">{ticket.email}</p>
-              <small className="text-xs">{ticket.dateCreated}</small>
+              <small className="text-xs">{ticket.created_at}</small>
             </div>
-            <p className="mb-4 mt-4 p-3">{ticket.notes}</p>
+            <p className="mb-4 mt-4 p-3">{ticket.description}</p>
 
             <button
               className="bg-red-400 px-2 py-1 ml-3 rounded text-slate-300 dark:hover:bg-red-500"
